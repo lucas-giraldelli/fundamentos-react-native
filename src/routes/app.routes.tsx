@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
@@ -29,16 +29,19 @@ const AppRoutes: React.FC = () => (
       name="Dashboard"
       component={Dashboard}
     />
+
     <App.Screen
       options={{
         headerTransparent: true,
-        headerTitle: () => <Image source={Logo} />,
+        headerTitle: () => () => <Image source={Logo} />,
         headerBackTitleVisible: false,
         headerLeftContainerStyle: {
           marginLeft: 20,
         },
 
-        headerBackImage: () => <FeatherIcon name="chevron-left" size={24} />,
+        headerBackImage: () => (
+          <FeatherIcon name="chevron-left" size={24} color="#000" />
+        ),
       }}
       name="Cart"
       component={Cart}
